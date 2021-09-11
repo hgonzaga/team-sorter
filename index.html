@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Team Sorter</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Hugo Gonzaga">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <script src="js/team_sorter.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <header>
+        <h1><mark>Team</mark> Sorter</h1>
+        <h6>sponcered by Century 21 League <i class="fa fa-trophy" aria-hidden="true"></i></h6>
+    </header>
+    <section>
+        <br>
+        <div class="descriptionPanel">
+            <h6>ABOUT THIS TOOL</h6>
+            <h2>Team Sorter</h2>
+            <p>
+                Team sorter is a happy little website and free tool that allows to randomly compose two teams.
+                <br>
+                Below are the steps to use the tool.
+            </p>
+            <h6>How to use?</h6>
+            <ol>
+                <li>Enter the name of the player in the input section below</li>
+                <li>Press <b class="b-add-button">ADD</b> button to enroll the chosed player's name to the list</li>
+                <li>Repeat this process until the 10 players are added</li>
+                <li>Press <b class="b-sort-button">SORT</b> button to randomly compose two teams</li>
+            </ol>
+        </div>
+        <br>
+        <div class="team-sorter-panel">
+            <div class="controlPanel">
+                <div class="insertionArea">
+                    <input type="text" placeholder="Enter player's name" id="playerNameInput">
+                    <div>
+                        <button id='addButton' class="add-button" onclick='addPlayer()'>ADD</button>
+                        <button id='sortButton' class="sort-button" onclick='sortTeams()' disabled>SORT</button>
+                    </div>
+                </div>
+                <div class="selectionPanel">
+                    <table id="table"></table>
+                </div>
+            </div>
+            <div id="resultPanel" class="resultPanel" style="display: none;">
+                <div class="resultPanelTeam">
+                    <h6>TEAM 1</h6>
+                    <ol id="resultPanelTeam1"></ol>
+                </div>
+                <h3>VS</h3>
+                <div class="resultPanelTeam">
+                    <h6>TEAM 2</h6>
+                    <ol id="resultPanelTeam2"></ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Copyright © 2021 | Designed by Hugo Gonzaga</p>
+    </footer>
+</body>
+
+</html>
