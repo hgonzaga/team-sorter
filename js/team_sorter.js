@@ -20,9 +20,26 @@ const mapToArrayFromTable = (table) => {
     return arrList.map((row) => row.cells[0].innerText);
 }
 
+const updateCounter = () => {
+    const table = document.getElementById('table');
+    document.getElementById("counter").innerHTML = "" + table.rows.length;
+}
+
 const removePlayer = (btn) => {
-    var row = btn.parentNode.parentNode;
+    const row = btn.parentNode.parentNode;
     row.parentNode.removeChild(row);
+    unlockAddButton();
+    lockSortButton();
+}
+
+const removeAllPlayers = () => {
+    const table = document.getElementById('table');
+    if(!table && !table.rows)
+        return;
+    table.innerHTML = "";
+    document.getElementById("clearButton").disabled = true;
+    document.getElementById('resultPanel').style.display = "none";
+    updateCounter();
     unlockAddButton();
     lockSortButton();
 }
@@ -38,7 +55,7 @@ const addPlayer = () => {
             const collRemoveButton = document.createElement('td');
             const button = document.createElement("button");
             button.innerText = 'X';
-            button.onclick = function () { removePlayer(button); };;
+            button.onclick = () => removePlayer(button);
             collPlayerName.appendChild(document.createTextNode(playerName));
             collPlayerName.style.textAlign = "left";
             collRemoveButton.appendChild(button);
@@ -55,8 +72,11 @@ const addPlayer = () => {
             document.getElementById("playerNameInput").disabled = true;
             document.getElementById("addButton").disabled = true;
             document.getElementById("sortButton").disabled = false;
+            updateCounter();
             return;
         }
+        updateCounter();
+        document.getElementById("clearButton").disabled = false;
     } else {
         alert("You must enter a name!");
         return;
@@ -65,7 +85,7 @@ const addPlayer = () => {
 
 const shuffle = (array) => {
     let currentIndex = array.length, randomIndex;
-    while (currentIndex != 0) {
+    while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex--;
         [array[currentIndex], array[randomIndex]] = [

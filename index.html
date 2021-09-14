@@ -15,7 +15,7 @@
 <body>
     <header>
         <h1><mark>Team</mark> Sorter</h1>
-        <h6>sponcered by Century 21 League <i class="fa fa-trophy" aria-hidden="true"></i></h6>
+        <h6>sponsored by Century 21 League <i class="fa fa-trophy" aria-hidden="true"></i></h6>
     </header>
     <section>
         <br>
@@ -30,32 +30,36 @@
             <h6>How to use?</h6>
             <ol>
                 <li>Enter the name of the player in the input section below</li>
-                <li>Press <b class="b-add-button">ADD</b> button to enroll the chosed player's name to the list</li>
+                <li>Press <strong class="description-add-button">ADD</strong> button to enroll the chosed player's name to the list</li>
                 <li>Repeat this process until the 10 players are added</li>
-                <li>Press <b class="b-sort-button">SORT</b> button to randomly compose two teams</li>
+                <li>Press <strong class="description-sort-button">SORT</strong> button to randomly compose two teams</li>
             </ol>
         </div>
         <br>
-        <div class="team-sorter-panel">
-            <div class="controlPanel">
-                <div class="insertionArea">
-                    <input type="text" placeholder="Enter player's name" id="playerNameInput">
+        <div class="main-panel">
+            <div class="sorter-panel">
+                <div class="control-panel">
+                    <div class="input-panel">
+                            <input type="text" placeholder="Enter player's name" id="playerNameInput" maxlength="15">
+                        <span id="counter">0</span>
+                    </div>
                     <div>
                         <button id='addButton' class="add-button" onclick='addPlayer()'>ADD</button>
+                        <button id='clearButton' class="clear-button" onclick='removeAllPlayers()' disabled>CLEAR</button>
                         <button id='sortButton' class="sort-button" onclick='sortTeams()' disabled>SORT</button>
                     </div>
                 </div>
-                <div class="selectionPanel">
+                <div class="table-panel">
                     <table id="table"></table>
                 </div>
             </div>
-            <div id="resultPanel" class="resultPanel" style="display: none;">
-                <div class="resultPanelTeam">
+            <div id="resultPanel" class="result-panel" style="display: none;">
+                <div class="result-team-panel">
                     <h6>TEAM 1</h6>
                     <ol id="resultPanelTeam1"></ol>
                 </div>
                 <h3>VS</h3>
-                <div class="resultPanelTeam">
+                <div class="result-team-panel">
                     <h6>TEAM 2</h6>
                     <ol id="resultPanelTeam2"></ol>
                 </div>
